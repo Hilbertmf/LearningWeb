@@ -1,0 +1,1 @@
+alert("Welcome to WSL 2017!")

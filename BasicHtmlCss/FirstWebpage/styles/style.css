@@ -1,28 +1,12 @@
-p 
+h1, h2, h3, li, dd, dt, p
 {
   color: rgb(80, 79, 90);
   font-family: 'K2D', sans-serif;
 }
 
-h1 
+#up p
 {
-  font-family: 'K2D', sans-serif;
-  color: rgb(80, 79, 90);
+  text-align: right;
+  font-size: 150%;
 }
 
-h2
-{
-  font-family: 'K2D', sans-serif;
-  color: rgb(80, 79, 90);
-}
-
-h3
-{
-  font-family: 'K2D', sans-serif;
-  color: rgb(80, 79, 90);
-}
-
-li
-{
-  font-family: 'K2D', sans-serif;
-}

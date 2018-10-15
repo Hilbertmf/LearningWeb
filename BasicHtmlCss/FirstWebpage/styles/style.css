@@ -1,15 +1,20 @@
 
-.font {
-  color: rgb(80, 79, 90);
+body {
+  background-color: rgb(48, 48, 51);
   font-family: 'K2D', sans-serif;
+  color: white;
+}
 
+a {
+  color: rgb(52, 151, 243);
+  text-decoration: none;
 }
 
 #up p {
   text-align: right;
   font-size: 130%;
 }
-
+  
 textarea {
   width: 20em;
   height: 10em;
@@ -18,4 +23,13 @@ textarea {
 button {
   position:relative;
   top: -0.4em;
+}
+
+iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 950px;
+  min-width: 45px;
 }

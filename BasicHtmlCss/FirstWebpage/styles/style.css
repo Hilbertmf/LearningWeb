@@ -14,10 +14,26 @@ a {
   text-align: right;
   font-size: 130%;
 }
+
+.myForm input[type='text'] {
+  display: block ;
+  width: 80%;
+  padding: 8px;
+}
+
+.myForm input[type='submit'] {
+  color: black;
+  font-weight: bold;
+  background-color: rgb(200, 200, 206);
+  display: block;
+  padding: 10px 20px;
+  border: none;
+}
   
 textarea {
-  width: 20em;
+  width: 81%;
   height: 10em;
+  margin-top: 10px;
 }
 
 button {

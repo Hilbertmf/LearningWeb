@@ -1,0 +1,72 @@
+function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function computerPlay(){
+    let randomNumber = randomInteger(1,3);
+    let play;
+
+    if(randomNumber === 1)
+        play = 'rock';
+    else if (randomNumber === 2)
+        play = 'paper';
+    else
+        play = 'scissors';
+    
+    return play;
+}
+
+function roundResult(playerChoice, computerChoice) {
+    
+    playerChoice = playerChoice.toLowerCase();
+
+    let result;
+    if(playerChoice === computerChoice)
+        result = 'draw';
+    else if(playerChoice === 'rock') 
+        result = computerChoice === 'paper' ? 'computer wins!' : 'human wins!';
+    else if(playerChoice === 'paper') 
+        result = computerChoice === 'scissors' ? 'computer wins!' : 'human wins!';
+    else if(playerChoice === 'scissors')
+        result = computerChoice === 'rock' ? 'computer wins!' : 'human wins!';
+    
+    return result;
+}
+
+function gameRound() {
+
+    let playerChoice = window.prompt('Write rock, paper or scissors');
+    let computerChoice = computerPlay();
+    
+    console.log('Computer plays: ', computerChoice, ' | Human plays: ', playerChoice);
+    let result = roundResult(playerChoice, computerChoice);
+    console.log(result);
+
+    return result.split(' ')[0]; // winner
+}
+
+function game() {
+    
+    let computerScore = 0;
+    let playerScore = 0;
+    console.log('Computer Score: ', computerScore);
+    console.log('Human Score: ', playerScore);
+
+    for (let i = 0; i < 5; i++) {
+        
+        let winner = gameRound();
+        if(winner === 'computer') {
+            computerScore++;
+        }
+        else if(winner === 'human') {
+            playerScore++;
+        }
+        
+        console.log('Computer Score: ', computerScore);
+        console.log('Human Score: ', playerScore);
+    } 
+
+    
+}
+
+game();

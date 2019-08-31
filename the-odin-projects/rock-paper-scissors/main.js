@@ -1,9 +1,9 @@
-function randomInteger(min, max) {
+function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function computerPlay(){
-    let randomNumber = randomInteger(1,3);
+function getComputerPlay(){
+    let randomNumber = getRandomInteger(1,3);
     let play;
 
     if(randomNumber === 1)
@@ -16,13 +16,13 @@ function computerPlay(){
     return play;
 }
 
-function roundResult(playerChoice, computerChoice) {
+function getRoundResult(playerChoice, computerChoice) {
     
     playerChoice = playerChoice.toLowerCase();
 
     let result;
     if(playerChoice === computerChoice)
-        result = 'draw';
+        result = 'draw!';
     else if(playerChoice === 'rock') 
         result = computerChoice === 'paper' ? 'computer wins!' : 'human wins!';
     else if(playerChoice === 'paper') 
@@ -36,10 +36,10 @@ function roundResult(playerChoice, computerChoice) {
 function gameRound() {
 
     let playerChoice = window.prompt('Write rock, paper or scissors');
-    let computerChoice = computerPlay();
+    let computerChoice = getComputerPlay();
     
     console.log('Computer plays: ', computerChoice, ' | Human plays: ', playerChoice);
-    let result = roundResult(playerChoice, computerChoice);
+    let result = getRoundResult(playerChoice, computerChoice);
     console.log(result);
 
     return result.split(' ')[0]; // winner
@@ -65,8 +65,14 @@ function game() {
         console.log('Computer Score: ', computerScore);
         console.log('Human Score: ', playerScore);
     } 
-
     
+    if(computerScore === playerScore)
+        console.log('It\'s a draw!');
+    else if(computerScore > playerScore) 
+        console.log('Computer wins! I\'m sorry Dave. I\'m afraid I can\'t do that.');
+    else
+        console.log('Human wins');
+
 }
 
 game();

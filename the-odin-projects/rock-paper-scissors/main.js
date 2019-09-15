@@ -1,8 +1,6 @@
-function getRandomInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
+const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
-function getComputerPlay(){
+const getComputerPlay = () => {
     let randomNumber = getRandomInteger(1,3);
     let play;
 
@@ -14,9 +12,9 @@ function getComputerPlay(){
         play = 'scissors';
     
     return play;
-}
+};
 
-function getRoundResult(playerChoice, computerChoice) {
+const getRoundResult = (playerChoice, computerChoice) => {
     
     playerChoice = playerChoice.toLowerCase();
 
@@ -31,9 +29,9 @@ function getRoundResult(playerChoice, computerChoice) {
         result = computerChoice === 'rock' ? 'computer wins!' : 'human wins!';
     
     return result;
-}
+};
 
-function gameRound() {
+const gameRound = () => {
 
     let playerChoice = window.prompt('Write rock, paper or scissors');
     let computerChoice = getComputerPlay();
@@ -43,9 +41,9 @@ function gameRound() {
     console.log(result);
 
     return result.split(' ')[0]; // winner
-}
+};
 
-function game() {
+const game = () => {
     
     let computerScore = 0;
     let playerScore = 0;
@@ -73,6 +71,6 @@ function game() {
     else
         console.log('Human wins');
 
-}
+};
 
 game();

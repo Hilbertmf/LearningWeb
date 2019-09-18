@@ -1,0 +1,102 @@
+/* Normalize */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+
+/* Basic Html selectors  */
+
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin-top: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.wrapper {
+    margin: 0 20px;
+}
+
+/* Layout */
+
+
+/* Flexbox */
+.navbar {
+    display: flex;
+}
+.item {
+    padding: 10px;
+    margin: 5px .5px;
+    border-radius: 5px;
+    border: 1px solid #88daf3;
+    background-color: #3db5da;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    height: 70px;
+}
+
+.logo {
+    margin-right: auto;
+    margin-left: 50px;
+    display: inline-flex;
+}
+
+.logo li {
+    display: block;
+    border: 1px solid red;
+    margin: 2px 5px;
+}
+
+.item-7 {
+    margin-right: auto;
+}
+
+.icon-4 {
+    margin-right: 50px;
+}
+
+.caroussel {
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.caroussel-item {
+    padding: 10px;
+    margin: 5px .5px;
+    border-radius: 5px;
+    border: 1px solid #88daf3;
+    background-color: #3db5da;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    height: 70px;
+}
+
+/* Section 2: Popular Items */
+
+.section-2 {
+    background-color: #39393b;
+}
+
+.popular-items {
+    display: flex;
+    padding:  40px 0;
+    justify-content: space-between;
+}
+
+.popular-items img {
+    padding: 0 7.5px;
+    border-radius: 10px;
+    width: 270px;
+}
+
+.pop-item {
+
+}

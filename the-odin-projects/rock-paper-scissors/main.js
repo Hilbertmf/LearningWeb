@@ -69,7 +69,7 @@ const game = () => {
     else if(computerScore > playerScore) 
         console.log('Computer wins! I\'m sorry Dave. I\'m afraid I can\'t do that.');
     else
-        console.log('Human wins');
+        console.log('Human wins!');
 
 };
 

@@ -44,15 +44,15 @@ img#rock-img {
     width: 150px;
 }
 
-a:hover {
-    border: 1px solid red;
-}
 
 img {
     transition: transform 500ms, width 500ms, height 500ms, background-color 500ms;
 }
-img:hover {
-    box-shadow: 0 0 2px 1px black;
+
+a.disabled:hover {
+    cursor: default;
+}
+a.enabled img:hover {
     transform: scale(1.1);
 }
 

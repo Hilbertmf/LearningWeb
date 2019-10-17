@@ -12,3 +12,19 @@ paragraphs.forEach(paragraph => {
         paragraph.style.color = 'green';
     }
 });
+
+const caretLink = document.getElementById('caret');
+const caret = document.querySelector('#caret i');
+let isToggled = false;
+caretLink.addEventListener('click', function() {
+    if(isToggled) {
+        isToggled = false;
+        caret.style.cssText -= 'transform: rotate(180deg)';
+    }
+    else {
+        isToggled = true;
+        caret.style.cssText += 'transform: rotate(180deg)';
+    }
+});
+
+

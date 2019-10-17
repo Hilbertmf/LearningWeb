@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: slateblue;
+}
+
+header {
+    width: 100%;
+    margin-top: 30px;
+}
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+div {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.players {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: 130px;
+}
+
+img#rock-img {
+    width: 150px;
+}
+
+a:hover {
+    border: 1px solid red;
+}
+
+img {
+    transition: transform 500ms, width 500ms, height 500ms, background-color 500ms;
+}
+img:hover {
+    box-shadow: 0 0 2px 1px black;
+    transform: scale(1.1);
+}
+
+.player-choices {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    border: none;
+    background-color: black;
+    color: #fff;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 25px;
+    font-family: 'Lato', sans-serif;
+    transition: transform 500ms, width 500ms, height 500ms, background-color 500ms;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #fff;
+    color: black;
+}

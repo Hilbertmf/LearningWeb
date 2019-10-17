@@ -1,6 +1,8 @@
-const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+const getRandomInteger = function(min, max) {
+     return Math.floor(Math.random() * (max - min + 1) + min);
+};
 
-const getComputerPlay = () => {
+const getComputerPlay = function() {
     let randomNumber = getRandomInteger(1,3);
     let play;
 
@@ -14,10 +16,10 @@ const getComputerPlay = () => {
     return play;
 };
 
-const getRoundResult = (playerChoice, computerChoice) => {
+const getRoundResult = function(playerChoice) {
     
     playerChoice = playerChoice.toLowerCase();
-
+    computerChoice = getComputerPlay();
     let result;
     if(playerChoice === computerChoice)
         result = 'draw!';
@@ -31,8 +33,19 @@ const getRoundResult = (playerChoice, computerChoice) => {
     return result;
 };
 
-const gameRound = () => {
+const gameRound = function() {
 
+    // Get the choices:
+    const playerChoices = document.querySelectorAll('.player-choices a');
+    const paper = playerChoices[0];
+    const rock = playerChoices[1];
+    const scissor = playerChoices[2];
+    console.log('choices = ', playerChoices);
+    console.log('paper = ', paper);
+    console.log('rock = ', rock);
+    console.log('scissor = ', scissor);
+    
+    
     let playerChoice = window.prompt('Write rock, paper or scissors');
     let computerChoice = getComputerPlay();
     
@@ -43,7 +56,7 @@ const gameRound = () => {
     return result.split(' ')[0]; // winner
 };
 
-const game = () => {
+const game = function () {
     
     let computerScore = 0;
     let playerScore = 0;
@@ -73,4 +86,22 @@ const game = () => {
 
 };
 
-game();
+// game();
+
+//get the player choices
+const playerChoiceLinks = document.querySelectorAll('.player-choices a');
+const paper = playerChoiceLinks[0];
+const rock = playerChoiceLinks[1];
+const scissor = playerChoiceLinks[2];
+
+let playerChoice, computerChoice;
+
+paper.addEventListener('click', () => {
+    playerChoice = 'paper';
+    alert(getRoundResult(playerChoice));
+});
+
+rock.addEventListener('click', () => alert('click me again'));
+
+scissor.addEventListener('click', () => alert('click me again'));
+

@@ -1,9 +1,28 @@
 // Variables
 let playerChoice, computerChoice, playerScore, computerScore, rounds;
-const playerChoices = document.querySelectorAll('.player-choices a');
-const paper  = playerChoices[0];
-const rock = playerChoices[1];
-const scissors = playerChoices[2];
+const playerOptions = document.querySelectorAll('.player-choices a');
+const paper  = playerOptions[0];
+const rock = playerOptions[1];
+const scissors = playerOptions[2];
+
+// Display Elements
+const displayHeaderh1 = document.querySelectorAll('.display-header h1');
+const displayheader = displayHeaderh1[0];
+const displayText = displayHeaderh1[1];
+const displayPlayerScore = document.getElementById('player-score');
+const displayComputerScore = document.getElementById('computer-score');
+
+// Text
+const defaultText = 'Select your choice...';
+const resultText1 = 'It\'s a tie!';
+const resultText2 = 'You Lose! Paper beats Rock!';
+const resultText3 = 'You Win! Rock beats Scissors!';
+const resultText4 = 'You Lose! Scissors beats Paper';
+
+
+const writeInScreen = function(element, string) {
+    element.innerHTML = string;
+};
 
 const getRandomInteger = function(min, max) {
      return Math.floor(Math.random() * (max - min + 1) + min);
@@ -75,15 +94,23 @@ const gameRound = function(playerChoice) {
     console.log('Computer plays: ', computerChoice, ' | Human plays: ', playerChoice);
     let result = getRoundResult(playerChoice, computerChoice);
     console.log(result[0]);
+    writeInScreen(displayText, result[0]);
+    window.setTimeout(() => {
+        writeInScreen(displayText, defaultText);
+        writeInScreen(displayheader, `Round ${rounds+1}`);
+    }, 2500);
+    
+    
 
     return result[1]; // winner
 };
-
 
 const gameController = function(playerChoice) {
     if(rounds === 0) {
         console.log('Computer Score: ', computerScore);
         console.log('Human Score: ', playerScore);
+        writeInScreen(displayComputerScore, computerScore);
+        writeInScreen(displayPlayerScore, playerScore);
     }
 
     let winner = gameRound(playerChoice);
@@ -97,6 +124,8 @@ const gameController = function(playerChoice) {
 
     console.log('Computer Score: ', computerScore);
     console.log('Human Score: ', playerScore);
+    writeInScreen(displayComputerScore, computerScore);
+    writeInScreen(displayPlayerScore, playerScore);
 
     if(rounds === 4) {
         if(computerScore === playerScore) {
@@ -125,9 +154,11 @@ newGame.addEventListener('click', () => {
     playerChoice = '';
     computerChoice = '';
     rounds = 0;
+    writeInScreen(displayheader, `Round ${rounds+1}`);
+    writeInScreen(displayText, defaultText);
     
     // change classes from disabled to enabled
-    playerChoices.forEach(choice => {
+    playerOptions.forEach(choice => {
         choice.classList.remove('disabled');
         choice.classList.add('enabled');
     });
@@ -136,17 +167,23 @@ newGame.addEventListener('click', () => {
 
 });
 
-paper.addEventListener('click', () => {
-    if(paper.classList.contains('enabled')) {
-        playerChoice = 'paper';
-        
-        gameController(playerChoice);
-
-        if(rounds === 5) {
-            // finishGame();
+playerOptions.forEach(choice => {
+    choice.addEventListener('click', () => {
+        console.log(choice);
+        console.log(choice.id);
+        if(choice.classList.contains('enabled')) {
+            playerChoice = choice.id;
+            
+            
+            gameController(playerChoice);
+    
+            if(rounds === 5) {
+                // finishGame();
+            }
+    
+            // Check if it's the last round
         }
-
-        // Check if it's the last round
-    }
+    });
 });
+
 

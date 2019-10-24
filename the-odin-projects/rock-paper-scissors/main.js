@@ -53,6 +53,23 @@ const getComputerPlay = function() {
     return play;
 };
 
+const showWinner = function() {
+    let resultStr; 
+    if(computerScore === playerScore) {
+        console.log('It\'s a draw!');
+        resultStr = `It's a draw!`;
+    }
+    else if(computerScore > playerScore) {
+        console.log('Computer wins! I\'m sorry Dave. I\'m afraid I can\'t do that.');
+        resultStr = `You lose!`;
+    }
+    else {
+        console.log('Human wins!');
+        resultStr = `You win!`;
+    }
+    writeInScreen(displayheader, resultStr);
+};
+
 const getRoundResult = function(playerChoice, computerChoice) {
     let result = new Array(3);
     if(playerChoice === computerChoice) {
@@ -139,15 +156,10 @@ const gameController = function(playerChoice) {
     writeInScreen(displayPlayerScore, playerScore);
 
     if(rounds === 4) {
-        if(computerScore === playerScore) {
-        console.log('It\'s a draw!');
-        }
-        else if(computerScore > playerScore) {
-            console.log('Computer wins! I\'m sorry Dave. I\'m afraid I can\'t do that.');
-        }
-        else {
-            console.log('Human wins!');
-        }
+        window.setTimeout(() => {
+        finish();
+    }, 2500);
+        
     }
     rounds++;
 };
@@ -182,8 +194,6 @@ newGameBtn.addEventListener('click', () => {
 
 const finish = function() {
     if(finishGameBtn.classList.contains('enabled')) {
-        // Initialize variables
-        initialize();
         
         writeInScreen(displayheader, initialText);
         writeInScreen(displayText, '');
@@ -200,6 +210,8 @@ const finish = function() {
         newGameBtn.classList.add('enabled');
         finishGameBtn.classList.remove('enabled');
         finishGameBtn.classList.add('disabled');
+
+        showWinner();
     }
 };
 
@@ -216,9 +228,7 @@ playerOptions.forEach(choice => {
             
             gameController(playerChoice);
     
-            if(rounds === 5) {
-                finish();
-            }
+            
     
             // Check if it's the last round
         }

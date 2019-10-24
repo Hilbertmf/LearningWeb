@@ -13,6 +13,7 @@ const displayPlayerScore = document.getElementById('player-score');
 const displayComputerScore = document.getElementById('computer-score');
 
 // Text
+const initialText = 'Start a New Game!';
 const defaultText = 'Select your choice...';
 const resultText1 = 'It\'s a tie!';
 const resultText2 = 'You Lose! Paper beats Rock!';
@@ -22,6 +23,16 @@ const resultText4 = 'You Lose! Scissors beats Paper';
 
 const writeInScreen = function(element, string) {
     element.innerHTML = string;
+};
+
+const initialize = function() {
+    playerScore = 0;
+    computerScore = 0;
+    playerChoice = '';
+    computerChoice = '';
+    rounds = 0;
+    writeInScreen(displayComputerScore, computerScore);
+    writeInScreen(displayPlayerScore, playerScore);
 };
 
 const getRandomInteger = function(min, max) {
@@ -143,17 +154,15 @@ const gameController = function(playerChoice) {
 // game();
 
 // get buttons
-const newGame = document.querySelector('.reset #newgame-btn');
+const newGameBtn = document.querySelector('.reset #newgame-btn');
+const finishGameBtn = document.querySelector('.reset #finishgame-btn');
 
 // When click New Game
-newGame.addEventListener('click', () => {
+newGameBtn.addEventListener('click', () => {
     // Set counters to 0
     // Initialize variables
-    playerScore = 0;
-    computerScore = 0;
-    playerChoice = '';
-    computerChoice = '';
-    rounds = 0;
+    initialize();
+
     writeInScreen(displayheader, `Round ${rounds+1}`);
     writeInScreen(displayText, defaultText);
     
@@ -164,8 +173,38 @@ newGame.addEventListener('click', () => {
     });
     // enable finish game
     // disable newgame itself
+    finishGameBtn.classList.remove('disabled');
+    finishGameBtn.classList.add('enabled');
+    newGameBtn.classList.remove('enabled');
+    newGameBtn.classList.add('disabled');
 
 });
+
+const finish = function() {
+    if(finishGameBtn.classList.contains('enabled')) {
+        // Initialize variables
+        initialize();
+        
+        writeInScreen(displayheader, initialText);
+        writeInScreen(displayText, '');
+
+        // disable player options
+        playerOptions.forEach(choice => {
+            choice.classList.remove('enabled');
+            choice.classList.add('disabled');
+        });
+
+        // enable newgame game
+        // disable endgame itself
+        newGameBtn.classList.remove('disabled');
+        newGameBtn.classList.add('enabled');
+        finishGameBtn.classList.remove('enabled');
+        finishGameBtn.classList.add('disabled');
+    }
+};
+
+// When click finish game
+finishGameBtn.addEventListener('click', finish);
 
 playerOptions.forEach(choice => {
     choice.addEventListener('click', () => {
@@ -178,7 +217,7 @@ playerOptions.forEach(choice => {
             gameController(playerChoice);
     
             if(rounds === 5) {
-                // finishGame();
+                finish();
             }
     
             // Check if it's the last round

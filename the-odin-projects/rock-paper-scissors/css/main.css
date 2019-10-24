@@ -79,12 +79,25 @@ button {
     font-size: 25px;
     font-family: 'Lato', sans-serif;
     transition: transform 500ms, width 500ms, height 500ms, background-color 500ms;
+    outline: none;
 }
 
-button:hover {
+button.enabled:hover {
     transform: scale(1.1);
     background-color: #fff;
     color: black;
+}
+
+button.disabled:hover {
+    cursor: default;
+}
+
+.reset {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
 }
 
 @media (min-width: 992px) {

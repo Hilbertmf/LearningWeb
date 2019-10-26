@@ -6,10 +6,14 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: slateblue;
+html {
+    height: 100%;
 }
 
+body {
+    background-color: slateblue;
+    min-height: 100%;
+}
 
 h1 {
     text-align: center;
@@ -23,10 +27,13 @@ div {
     margin-bottom: 20px;
 }
 
+header {
+    border-bottom: 1px solid black;
+}
+
 .display {
     display: block;
-    margin-top: 35px;
-    border-top: 1px solid black;
+    margin-top: 15px;
 }
 
 .display-header {
@@ -98,6 +105,22 @@ button.disabled:hover {
     justify-content: space-around;
     margin-bottom: 50px;
 }
+
+main {
+    min-height: calc(100vh - 120px);
+}
+
+footer {
+    text-align: center;
+}
+
+/* icon */
+.fab {
+    margin: 0 15px;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
 
 @media (min-width: 768px) {
     h1 {

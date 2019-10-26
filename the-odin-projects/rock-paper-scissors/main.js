@@ -119,13 +119,24 @@ const getRoundResult = function(playerChoice, computerChoice) {
 const gameRound = function(playerChoice) {
     computerChoice = getComputerPlay();
     
-    console.log('Computer plays: ', computerChoice, ' | Human plays: ', playerChoice);
     let result = getRoundResult(playerChoice, computerChoice);
+    
+    console.log('Computer plays: ', computerChoice, ' | Human plays: ', playerChoice);
     console.log(result[0]);
     writeInScreen(displayText, result[0]);
+    // disable player options
+    playerOptions.forEach(choice => {
+        choice.classList.remove('enabled');
+        choice.classList.add('disabled');
+    });
     window.setTimeout(() => {
         writeInScreen(displayText, defaultText);
         writeInScreen(displayheader, `Round ${rounds+1}`);
+        // enable player options
+        playerOptions.forEach(choice => {
+            choice.classList.remove('disabled');
+            choice.classList.add('enabled');
+        });
     }, 2500);
     
     
@@ -225,12 +236,7 @@ playerOptions.forEach(choice => {
         if(choice.classList.contains('enabled')) {
             playerChoice = choice.id;
             
-            
             gameController(playerChoice);
-    
-            
-    
-            // Check if it's the last round
         }
     });
 });

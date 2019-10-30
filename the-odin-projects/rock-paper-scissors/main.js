@@ -230,5 +230,3 @@ playerOptions.forEach(choice => {
         }
     });
 });
-
-

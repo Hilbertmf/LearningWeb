@@ -96,8 +96,8 @@ header {
     justify-content: space-evenly;
 }
 
-.players .player-score {
-    margin-right: 80px;
+#player-score {
+    margin-right: 70px;
 }
 
 img {
